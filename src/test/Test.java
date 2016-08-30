@@ -74,11 +74,22 @@ public class Test {
 		String fecha1 = "14/06/1954";
 		String fecha2 = "26/06/1994";
 		String f_hoy  = "23/08/2016";
-		
-		
+				
 		System.out.println(fecha1 + " = " + fecha2 + "? " + Funciones.sonFechasIguales(Funciones.traerFecha(fecha1), Funciones.traerFecha(fecha2)));
 		System.out.println(f_hoy + " = " + f_hoy + "? " + Funciones.sonFechasIguales(Funciones.traerFecha(f_hoy), Funciones.traerFecha(f_hoy)));
 		System.out.println("\n");
+	}
+	
+	private static void testCadenas( ){
+		String		nro = "12312";
+		String 		nonro = "123rsa";
+		String		letra = "àrból";
+		String 		noletra = "hola1";		
+		
+		System.out.println(Funciones.esCadenaNros(nro));
+		System.out.println(Funciones.esCadenaNros(nonro));
+		System.out.println(Funciones.esCadenaLetras(letra));
+		System.out.println(Funciones.esCadenaLetras(noletra));
 	}
 	
 	public static void main(String[] args) {
@@ -92,5 +103,6 @@ public class Test {
 		testEsDiaHabil();
 		testTraerDiaDeLaSemana();
 		testCompara();
+		testCadenas();
 	}
 }

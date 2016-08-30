@@ -1,5 +1,6 @@
 package test;
 import java.util.Calendar;
+import java.lang.Character;
 import java.util.GregorianCalendar;
 
 public class Funciones {
@@ -199,5 +200,40 @@ public class Funciones {
 	
 	public static boolean sonFechasHorasIguales (GregorianCalendar fecha1, GregorianCalendar fecha2) {
 		return ((fecha1.get(Calendar.HOUR_OF_DAY) == fecha2.get(Calendar.HOUR_OF_DAY)) && (fecha1.get(Calendar.MINUTE) == fecha2.get(Calendar.MINUTE)));
+	}
+
+	public static double aproximar2Decimal (double valor) {
+		return Math.rint(valor*100)/100;
+	}
+	
+	public static boolean esNumero(char c) {		
+		return Character.isDigit(c);
+	}
+	public static boolean esLetra(char c) {
+		return Character.isLetter(c);
+	}
+	public static boolean esCadenaNros(String cadena) {
+		int		i;
+		boolean	resp = true;
+		
+		for(i = 0; i < cadena.length(); i++){
+			if(!esNumero(cadena.toCharArray()[i])) {
+				resp = false;
+			}			
+		}
+		
+		return resp;
+	}
+	public static boolean esCadenaLetras(String cadena){
+		int		i;
+		boolean	resp = true;
+		
+		for(i = 0; i < cadena.length(); i++){
+			if(!esLetra(cadena.toCharArray()[i])) {
+				resp = false;
+			}			
+		}
+		
+		return resp;		
 	}
 }
