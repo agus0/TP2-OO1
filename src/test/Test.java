@@ -83,7 +83,7 @@ public class Test {
 	private static void testCadenas( ){
 		String		nro = "12312";
 		String 		nonro = "123rsa";
-		String		letra = "àrból";
+		String		letra = "hola";
 		String 		noletra = "hola1";		
 		
 		System.out.println(Funciones.esCadenaNros(nro));
