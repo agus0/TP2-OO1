@@ -158,7 +158,7 @@ public class Test {
 		testCadenas();
 		testSonPrimos();
 		testSonPrimosMellizos();
-		imprimirPrimosHasta(20);
-		imprimirMellizosHasta(20);
+		//imprimirPrimosHasta(20);
+		//imprimirMellizosHasta(20);
 	}
 }
