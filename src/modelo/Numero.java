@@ -1,4 +1,4 @@
-package test;
+package modelo;
 
 public class Numero {
 	private int	n;

@@ -1,8 +1,10 @@
 package test;
 import java.util.GregorianCalendar;
 
+import modelo.Funciones;
 
-public class Test {
+
+public class TestFunciones {
 
 	private static void testBisiesto() {
 		System.out.println("2005 es bisiesto?: " + Funciones.esBisiesto(2005));
@@ -93,57 +95,6 @@ public class Test {
 		System.out.println("\n");
 	}
 	
-	private static void testSonPrimos() {
-		Numero num1 = new Numero(8);
-		Numero num2 = new Numero(7);
-		
-		System.out.println(num1.getN() + " primo? " + num1.esPrimo());
-		System.out.println(num2.getN() + " primo? " + num2.esPrimo());
-		System.out.println("\n");
-	}
-	
-	private static void testSonPrimosMellizos() {
-		Numero num1 = new Numero (5);
-		Numero num2 = new Numero (7);
-		Numero num3 = new Numero (9);
-		Numero num4 = new Numero (2);
-		
-		System.out.println(num1.getN() + " y " + num2.getN() + " primos mellizos? " + num1.esPrimoMellizo(num2));
-		System.out.println(num1.getN() + " y " + num3.getN() + " primos mellizos? " + num1.esPrimoMellizo(num3));
-		System.out.println(num1.getN() + " y " + num4.getN() + " primos mellizos? " + num1.esPrimoMellizo(num4));
-		System.out.println("\n");
-	}
-	
-	private static void imprimirPrimosHasta (int n) {
-		int 	i;
-		Numero	num = new Numero(0);
-		System.out.println("Numeros primos hasta " + n + ":");
-		for (i = 1; i <= n; i++) {
-			num.setN(i);
-			if (num.esPrimo()) {
-				System.out.println(num.getN());
-			}
-		}
-		System.out.println("\n");
-	}
-	
-	public static void imprimirMellizosHasta(int n) {
-		Numero 	num1 = new Numero(0);
-		Numero 	num2 = new Numero(0);
-		int		x = 1;
-		
-		System.out.println("Lista de primos mellizos hasta " + n + ":");
-		while(x <= n) {
-			num1.setN(x);
-			num2.setN(x + 2);
-			if (num1.esPrimoMellizo(num2)) {
-				System.out.println(num1.getN() + " y " + num2.getN());
-			}
-			x++;
-		}
-		System.out.println("\n");
-	}
-	
 	public static void main(String[] args) {
 		testBisiesto();
 		testTraerAnio();
@@ -156,9 +107,6 @@ public class Test {
 		testTraerDiaDeLaSemana();
 		testCompara();
 		testCadenas();
-		testSonPrimos();
-		testSonPrimosMellizos();
-		imprimirPrimosHasta(50);
-		imprimirMellizosHasta(50);
+
 	}
 }

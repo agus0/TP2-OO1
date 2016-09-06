@@ -1,4 +1,4 @@
-package test;
+package modelo;
 import java.util.Calendar;
 import java.lang.Character;
 import java.util.GregorianCalendar;
@@ -9,8 +9,10 @@ public class Funciones {
 	}
 	
 	public static double convertirDoble (int numero) {	
-		return Double.parseDouble(convertirString(numero));
+		return ((double)(numero));
 	}
+
+
 	
 	public static void imprimirArreglo(int[] array) {
 		int i;
@@ -236,4 +238,7 @@ public class Funciones {
 		
 		return resp;		
 	}
+	
 }
+
+
