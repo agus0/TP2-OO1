@@ -23,8 +23,12 @@ public class Rodado {
 		return dominio;
 	}
 	
-	public void setDominio(String dominio) {
-		this.dominio = dominio;
+	public void setDominio(String dominio) throws Exception{
+		if (validarDominio(dominio)) {
+			this.dominio = dominio;
+		}else{
+			throw new Exception("Error: Dominio invalido.");
+		}
 	}
 	
 	public String getMarca() {
@@ -46,6 +50,12 @@ public class Rodado {
 	@Override
 	public String toString() {
 		return "[idRodado=" + idRodado + ", dominio=" + dominio + ", marca=" + marca + ", modelo=" + modelo	+ "]";
+	}
+	
+	public static boolean validarDominio(String dominio) {
+		boolean resultado = true;
+		
+		return resultado;
 	}
 	
 }

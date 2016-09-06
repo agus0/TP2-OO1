@@ -1,15 +1,13 @@
 package modelo;
 
-import java.util.Arrays;
-
 public class Contribuyente {
 	private int idContribuyente;
 	private String apellido,nombre;
 	private long dni;
 	private char sexo;
-	private String[] cuil = new String[11];
+	private String cuil = new String();
 	
-	public Contribuyente(int idContribuyente, String apellido, String nombre, long dni, char sexo, String[] cuil) {
+	public Contribuyente(int idContribuyente, String apellido, String nombre, long dni, char sexo, String cuil) {
 		this.idContribuyente = idContribuyente;
 		this.apellido = apellido;
 		this.nombre = nombre;
@@ -54,22 +52,41 @@ public class Contribuyente {
 		return sexo;
 	}
 	
-	public void setSexo(char sexo) {
-		this.sexo = sexo;
+	public void setSexo(char sexo) throws Exception {
+		if (validarSexo(sexo)) {
+			this.sexo = sexo;
+		}else{
+			throw new Exception("Error " + sexo + " es un caracter incorrecto. Ingrese F o M");
+		}
 	}
 	
-	public String[] getCuil() {
+	public String getCuil() {
 		return cuil;
 	}
 	
-	public void setCuil(String[] cuil) {
-		this.cuil = cuil;
+	public void setCuil(String cuil) throws Exception{
+		if (validarCuil(cuil)) {
+			this.cuil = cuil;
+		}else{
+			throw new Exception("Error: cuil invalido.");
+		}
 	}
 	
 	@Override
 	public String toString() {
 		return "idContribuyente=" + idContribuyente + "\nApellido=" + apellido + ",\nNombre=" + nombre
-				+ "\nDni=" + dni + "\nSexo=" + sexo + "\nCuil=" + Arrays.toString(cuil) + "\n";
+				+ "\nDni=" + dni + "\nSexo=" + sexo + "\nCuil=" + cuil + "\n";
 	}
 	
+	public static boolean validarCuil(String cuil) {
+		boolean resultado = true;
+		
+		return resultado;
+	}
+	
+	public static boolean validarSexo(char sexo) {
+		boolean resultado = true;
+		
+		return resultado;
+	}
 }
