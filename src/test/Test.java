@@ -118,7 +118,7 @@ public class Test {
 		int 	i;
 		Numero	num = new Numero(0);
 		System.out.println("Numeros primos hasta " + n + ":");
-		for (i = 0; i < n; i++) {
+		for (i = 1; i <= n; i++) {
 			num.setN(i);
 			if (num.esPrimo()) {
 				System.out.println(num.getN());
@@ -130,10 +130,10 @@ public class Test {
 	public static void imprimirMellizosHasta(int n) {
 		Numero 	num1 = new Numero(0);
 		Numero 	num2 = new Numero(0);
-		int		x = 0;
+		int		x = 1;
 		
 		System.out.println("Lista de primos mellizos hasta " + n + ":");
-		while(x < n) {
+		while(x <= n) {
 			num1.setN(x);
 			num2.setN(x + 2);
 			if (num1.esPrimoMellizo(num2)) {
@@ -158,7 +158,7 @@ public class Test {
 		testCadenas();
 		testSonPrimos();
 		testSonPrimosMellizos();
-		//imprimirPrimosHasta(20);
-		//imprimirMellizosHasta(20);
+		imprimirPrimosHasta(50);
+		imprimirMellizosHasta(50);
 	}
 }

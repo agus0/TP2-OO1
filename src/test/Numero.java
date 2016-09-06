@@ -16,18 +16,21 @@ public class Numero {
 	}
 	
 	public boolean esPrimo() {
-		int 	contador = 2;
+		int 	i;
 		boolean primo = true;
 		
-		if (n % 2 != 0 || n == 2) {
-			while ((primo) && (contador != n)){
-				if (n % contador == 0) {
+		if (n % 2 != 0 ) {
+			for(i=3; (primo) && (i<= (int)Math.sqrt(n));i+=2){
+				if (n % i == 0) {
 					primo = false;
-			    }
-				contador++;  	
+			    }	
 			}
 		}else{
+			if(n==2){
+				primo = true;
+			}else{
 			primo = false;
+			}
 		}
 		return primo;
 	}
