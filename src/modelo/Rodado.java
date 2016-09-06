@@ -37,8 +37,7 @@ public class Rodado {
 	}
 	@Override
 	public String toString() {
-		return "[idRodado=" + idRodado + ", dominio=" + dominio + ", marca=" + marca + ", modelo=" + modelo
-				+ "]";
+		return "[idRodado=" + idRodado + ", dominio=" + dominio + ", marca=" + marca + ", modelo=" + modelo	+ "]";
 	}
 	
 }
