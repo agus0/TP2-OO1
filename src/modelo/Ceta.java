@@ -41,16 +41,24 @@ public class Ceta {
 		return vendedor;
 	}
 	
-	public void setVendedor(Contribuyente vendedor) {
-		this.vendedor = vendedor;
+	public void setVendedor(Contribuyente vendedor) throws Exception {
+		if (vendedor.getCuil() == this.comprador.getCuil()) {
+			throw new Exception("Error: El Vendedor y el Comprador son el mismo.");
+		}else{
+			this.vendedor = vendedor;
+		}
 	}
 	
 	public Contribuyente getComprador() {
 		return comprador;
 	}
 	
-	public void setComprador(Contribuyente comprador) {
-		this.comprador = comprador;
+	public void setComprador(Contribuyente comprador) throws Exception{
+		if (comprador.getCuil() == this.vendedor.getCuil()) {
+			throw new Exception("Error: El Comprador y el Vendedor son el mismo.");
+		}else{
+			this.comprador = comprador;
+		}
 	}
 	
 	public double getValorDeTranferencia() {
