@@ -85,8 +85,11 @@ public class Contribuyente {
 	}
 	
 	public static boolean validarSexo(char sexo) {
-		boolean resultado = true;
+		boolean resultado = false;
 		
+		if (Character.toLowerCase(sexo) == 'f' || Character.toLowerCase(sexo) == 'm') {
+			resultado = true;
+		}
 		return resultado;
 	}
 }

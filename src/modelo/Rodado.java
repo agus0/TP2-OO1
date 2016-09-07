@@ -53,8 +53,22 @@ public class Rodado {
 	}
 	
 	public static boolean validarDominio(String dominio) {
-		boolean resultado = true;
+		boolean resultado = false;
 		
+		if (dominio.length() == 6) {
+			if (Funciones.esCadenaLetras(dominio.substring(0, 2))) {
+				if (Funciones.esCadenaNros(dominio.substring(3, 5))) {
+					resultado = true;
+				}
+			}
+		}
+		if (dominio.length() == 7) {
+			if (Funciones.esCadenaLetras(dominio.substring(0, 1)+dominio.substring(5, 6))) {
+				if (Funciones.esCadenaNros(dominio.substring(2, 4))) {
+					resultado = true;
+				}
+			}
+		}
 		return resultado;
 	}
 	
