@@ -54,7 +54,7 @@ public class Contribuyente {
 	
 	public void setSexo(char sexo) throws Exception {
 		if (validarSexo(sexo)) {
-			this.sexo = sexo;
+			this.sexo = Character.toLowerCase(sexo);
 		}else{
 			throw new Exception("Error " + sexo + " es un caracter incorrecto. Ingrese F o M");
 		}
@@ -78,9 +78,34 @@ public class Contribuyente {
 				+ "\nDni=" + dni + "\nSexo=" + sexo + "\nCuil=" + cuil + "\n";
 	}
 	
-	public static boolean validarCuil(String cuil) {
-		boolean resultado = true;
+	public boolean validarCuil(String cuil) {
+		boolean resultado = false;
+		int 	valor1 = 0;
+		int		valor2 = 0;
+		int 	valor3 = 0;
 		
+		if (cuil.length() == 11) {
+			if ((((this.getSexo() == 'f') && (cuil.substring(0, 1)) == "27"))
+			|| (((this.getSexo() == 'm') && (cuil.substring(0, 1)) == "20"))) {
+				valor1 =  (Integer.parseInt(""+cuil.charAt(0)) * 5)
+						 +(Integer.parseInt(""+cuil.charAt(1)) * 4) 
+						 +(Integer.parseInt(""+cuil.charAt(2)) * 3) 
+						 +(Integer.parseInt(""+cuil.charAt(3)) * 2) 
+						 +(Integer.parseInt(""+cuil.charAt(4)) * 7) 
+						 +(Integer.parseInt(""+cuil.charAt(5)) * 6) 
+						 +(Integer.parseInt(""+cuil.charAt(6)) * 5) 
+						 +(Integer.parseInt(""+cuil.charAt(7)) * 4) 
+						 +(Integer.parseInt(""+cuil.charAt(8)) * 3) 
+						 +(Integer.parseInt(""+cuil.charAt(9)) * 2);
+				valor2 = valor1 % 11;
+				valor3 = 11 - valor2;
+				if ( ((valor3 == 11) && (Integer.parseInt(""+cuil.charAt(11)) == 0))
+				|| ((valor3 == 10) && (Integer.parseInt(""+cuil.charAt(11)) == 9))
+				|| (valor3 == Integer.parseInt(""+cuil.charAt(11))) ) {
+					resultado = true;
+				}
+			}
+		}
 		return resultado;
 	}
 	
