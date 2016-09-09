@@ -49,7 +49,7 @@ public class Rodado {
 	
 	@Override
 	public String toString() {
-		return "[idRodado=" + idRodado + ", dominio=" + dominio + ", marca=" + marca + ", modelo=" + modelo	+ "]";
+		return "idRodado =" + idRodado + "\ndominio = " + dominio + "\nmarca = " + marca + "\nmodelo = " + modelo	;
 	}
 	
 	public static boolean validarDominio(String dominio) {

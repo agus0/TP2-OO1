@@ -74,8 +74,8 @@ public class Contribuyente {
 	
 	@Override
 	public String toString() {
-		return "idContribuyente=" + idContribuyente + "\nApellido=" + apellido + ",\nNombre=" + nombre
-				+ "\nDni=" + dni + "\nSexo=" + sexo + "\nCuil=" + cuil + "\n";
+		return "idContribuyente = " + idContribuyente + "\nApellido = " + apellido + "\nNombre = " + nombre
+				+ "\nDni = " + dni + "\nSexo = " + sexo + "\nCuil = " + cuil + "\n";
 	}
 	
 	public boolean validarCuil(String cuil) {
@@ -85,8 +85,8 @@ public class Contribuyente {
 		int 	valor3 = 0;
 		
 		if (cuil.length() == 11) {
-			if ((((this.getSexo() == 'f') && (cuil.substring(0, 2)) == "27"))
-			|| (((this.getSexo() == 'm') && (cuil.substring(0, 2)) == "20"))) {
+			if ((((this.getSexo() == 'f') || (cuil.substring(0, 2)) == "27"))
+			|| (((this.getSexo() == 'm') || (cuil.substring(0, 2)) == "20"))) {
 				//problema  para tomar (cuil.substring(0, 2)) == "20" como verdadero
 				valor1 =  (Integer.parseInt(""+cuil.charAt(0)) * 5)
 						 +(Integer.parseInt(""+cuil.charAt(1)) * 4) 

@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.GregorianCalendar;
+import modelo.Funciones;
 
 public class Ceta {
 	private int idCeta;
@@ -11,12 +12,12 @@ public class Ceta {
 	private boolean firmaComprador;
 	
 	public Ceta(int idCeta, GregorianCalendar fecha, Contribuyente vendedor, Contribuyente comprador,
-		double valorDeTranferencia, boolean firmaComprador) {
+		double valorDeTranferencia, boolean firmaComprador) throws Exception {
 
 		this.idCeta = idCeta;
-		this.fecha = fecha;
+		this.setFecha(fecha);
 		this.vendedor = vendedor;
-		this.comprador = comprador;
+		this.setComprador(comprador);
 		this.valorDeTranferencia = valorDeTranferencia;
 		this.firmaComprador = firmaComprador;
 	}
@@ -33,20 +34,21 @@ public class Ceta {
 		return fecha;
 	}
 	
-	public void setFecha(GregorianCalendar fecha) {
-		this.fecha = fecha;
+	public void setFecha(GregorianCalendar fecha) throws Exception {
+		if(validarFecha(fecha)){
+			this.fecha = fecha;
+		}else{
+			throw new Exception("ERROR: la fecha no puede ser posterior al día de hoy");
+		}
 	}
 	
 	public Contribuyente getVendedor() {
 		return vendedor;
 	}
 	
-	public void setVendedor(Contribuyente vendedor) throws Exception {
-		if (vendedor.getCuil() == this.comprador.getCuil()) {
-			throw new Exception("Error: El Vendedor y el Comprador son el mismo.");
-		}else{
+	public void setVendedor(Contribuyente vendedor)  {
+		
 			this.vendedor = vendedor;
-		}
 	}
 	
 	public Contribuyente getComprador() {
@@ -79,8 +81,18 @@ public class Ceta {
 	
 	@Override
 	public String toString() {
-		return "Ceta [idCeta=" + idCeta + ", fecha=" + fecha + ", vendedor=" + vendedor + ", comprador=" + comprador
-				+ ", valorDeTranferencia=" + valorDeTranferencia + ", firmaComprador=" + firmaComprador + "]";
+		return "Ceta \n idCeta=" + idCeta + "\nFECHA" + Funciones.traerFechaCorta(fecha) + "\n\n VENDEDOR\n" + vendedor + "\n COMPRADOR\n" + comprador
+				+ "\nvalorDeTranferencia=" + valorDeTranferencia + "\nfirmaComprador=" + firmaComprador ;
+	}
+	public boolean validarFecha(GregorianCalendar fecha){
+		
+		boolean resultado = false;	
+		GregorianCalendar fechaActual = new GregorianCalendar();
+		if(fecha.compareTo(fechaActual) <= 0){
+			resultado = true;	
+		}
+		
+		return resultado;
 	}
 	
 }
