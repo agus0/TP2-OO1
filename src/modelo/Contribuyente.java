@@ -85,8 +85,9 @@ public class Contribuyente {
 		int 	valor3 = 0;
 		
 		if (cuil.length() == 11) {
-			if ((((this.getSexo() == 'f') && (cuil.substring(0, 1)) == "27"))
-			|| (((this.getSexo() == 'm') && (cuil.substring(0, 1)) == "20"))) {
+			if ((((this.getSexo() == 'f') && (cuil.substring(0, 2)) == "27"))
+			|| (((this.getSexo() == 'm') && (cuil.substring(0, 2)) == "20"))) {
+				//problema  para tomar (cuil.substring(0, 2)) == "20" como verdadero
 				valor1 =  (Integer.parseInt(""+cuil.charAt(0)) * 5)
 						 +(Integer.parseInt(""+cuil.charAt(1)) * 4) 
 						 +(Integer.parseInt(""+cuil.charAt(2)) * 3) 
@@ -99,9 +100,9 @@ public class Contribuyente {
 						 +(Integer.parseInt(""+cuil.charAt(9)) * 2);
 				valor2 = valor1 % 11;
 				valor3 = 11 - valor2;
-				if ( ((valor3 == 11) && (Integer.parseInt(""+cuil.charAt(11)) == 0))
-				|| ((valor3 == 10) && (Integer.parseInt(""+cuil.charAt(11)) == 9))
-				|| (valor3 == Integer.parseInt(""+cuil.charAt(11))) ) {
+				if ( ((valor3 == 11) && (Integer.parseInt(""+cuil.charAt(10)) == 0))
+				|| ((valor3 == 10) && (Integer.parseInt(""+cuil.charAt(10)) == 9))
+				|| (valor3 == Integer.parseInt(""+cuil.charAt(10))) ) {
 					resultado = true;
 				}
 			}

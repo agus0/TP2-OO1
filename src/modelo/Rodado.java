@@ -5,9 +5,9 @@ public class Rodado {
 	private String dominio, marca;
 	private int modelo;
 	
-	public Rodado(int idRodado, String dominio, String marca, int modelo) {
+	public Rodado(int idRodado, String dominio, String marca, int modelo) throws Exception {
 		this.idRodado = idRodado;
-		this.dominio = dominio;
+		this.setDominio(dominio);
 		this.marca = marca;
 		this.modelo = modelo;
 	}
