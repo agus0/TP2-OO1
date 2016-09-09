@@ -8,12 +8,22 @@ public class Contribuyente {
 	private String cuil = new String();
 	
 	public Contribuyente(int idContribuyente, String apellido, String nombre, long dni, char sexo, String cuil) {
-		this.idContribuyente = idContribuyente;
-		this.apellido = apellido;
-		this.nombre = nombre;
-		this.dni = dni;
-		this.sexo = sexo;
-		this.cuil = cuil;
+		//this.idContribuyente = idContribuyente;
+		this.setIdContribuyente(idContribuyente);
+		//this.apellido = apellido;
+		this.setApellido(apellido);
+		//this.nombre = nombre;
+		this.setNombre(nombre);
+		//this.dni = dni;
+		this.setDni(dni);
+		//this.sexo = sexo;
+		try {
+			this.setSexo(sexo);
+			//this.cuil = cuil;
+			this.setCuil(cuil);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public int getIdContribuyente() {
