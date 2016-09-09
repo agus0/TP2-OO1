@@ -7,23 +7,13 @@ public class Contribuyente {
 	private char sexo;
 	private String cuil = new String();
 	
-	public Contribuyente(int idContribuyente, String apellido, String nombre, long dni, char sexo, String cuil) {
-		//this.idContribuyente = idContribuyente;
-		this.setIdContribuyente(idContribuyente);
-		//this.apellido = apellido;
+	public Contribuyente(int idContribuyente, String apellido, String nombre, long dni, char sexo, String cuil) throws Exception {
+		this.idContribuyente = idContribuyente;
 		this.setApellido(apellido);
-		//this.nombre = nombre;
 		this.setNombre(nombre);
-		//this.dni = dni;
 		this.setDni(dni);
-		//this.sexo = sexo;
-		try {
-			this.setSexo(sexo);
-			//this.cuil = cuil;
-			this.setCuil(cuil);
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
+		this.setSexo(sexo);
+		this.setCuil(cuil);
 	}
 	
 	public int getIdContribuyente() {

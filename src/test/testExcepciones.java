@@ -5,10 +5,15 @@ import modelo.Contribuyente;
 public class testExcepciones {
 
 	private static void testCuil(){
-		Contribuyente persona = new Contribuyente(1,"Melgarejo","Jose", 94557769, 'M',"20945577690");
-		System.out.println(persona.toString());
-		Contribuyente persona1 = new Contribuyente(1,"Vescio","Javier", 38125121, 'M',"20381251218");
-		System.out.println(persona1.toString());
+		try{
+			Contribuyente persona = new Contribuyente(1,"Melgarejo","Jose", 94557769, 'M',"20945577690");
+			System.out.println(persona.toString());
+		}
+		catch(Exception e){
+			System.out.println("Excepcion: " + e.getMessage());
+		}
+
+		
 	}
 	
 	private static void testSexo(){
