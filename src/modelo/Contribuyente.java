@@ -83,11 +83,10 @@ public class Contribuyente {
 		int 	valor1 = 0;
 		int		valor2 = 0;
 		int 	valor3 = 0;
-		
+		String cuilinic = new String(cuil.substring(0, 2));
 		if (cuil.length() == 11) {
-			if ((((this.getSexo() == 'f') || (cuil.substring(0, 2)) == "27"))
-			|| (((this.getSexo() == 'm') || (cuil.substring(0, 2)) == "20"))) {
-				//problema  para tomar (cuil.substring(0, 2)) == "20" como verdadero
+			if (((this.getSexo() == 'f') && ( cuilinic.compareTo("20")==0))
+			|| ((this.getSexo() == 'm')&&(cuilinic.compareTo("20")==0))) {
 				valor1 =  (Integer.parseInt(""+cuil.charAt(0)) * 5)
 						 +(Integer.parseInt(""+cuil.charAt(1)) * 4) 
 						 +(Integer.parseInt(""+cuil.charAt(2)) * 3) 
